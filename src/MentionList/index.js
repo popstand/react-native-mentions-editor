@@ -20,9 +20,6 @@ export class MentionList extends React.PureComponent {
   constructor() {
     super();
     this.previousChar = " ";
-    this.state = {
-      inverted: false
-    }
   }
 
   renderSuggestionsRow = ({ item }) => {
@@ -37,7 +34,7 @@ export class MentionList extends React.PureComponent {
   render() {
     const { props } = this;
 
-    const { keyword, isTrackingStarted } = props;
+    const { keyword, isTrackingStarted, inverted } = props;
     const withoutAtKeyword = keyword.substr(1, keyword.length);
     const list = this.props.list;
     const suggestions =
@@ -71,7 +68,7 @@ export class MentionList extends React.PureComponent {
           renderItem={rowData => {
             return this.renderSuggestionsRow(rowData);
           }}
-          inverted={state.inverted}
+          inverted={inverted}
         />
       </Animated.View>
     );

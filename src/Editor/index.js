@@ -29,6 +29,7 @@ export class Editor extends React.Component {
     renderMentionList: PropTypes.func,
     maxLength: PropTypes.number,
     autoFocus: PropTypes.bool,
+    inverted: PropTypes.bool
   };
 
   constructor(props) {
@@ -65,7 +66,8 @@ export class Editor extends React.Component {
       scrollContentInset: { top: 0, bottom: 0, left: 0, right: 0 },
       placeholder: props.placeholder || "Type something...",
       maxLength: props.maxLength || 283,
-      autoFocus: false
+      autoFocus: false,
+      inverted: props.inverted || false,
     };
     this.isTrackingStarted = false;
     this.previousChar = " ";
@@ -531,6 +533,7 @@ export class Editor extends React.Component {
             isTrackingStarted={state.isTrackingStarted}
             onSuggestionTap={this.onSuggestionTap}
             editorStyles={editorStyles}
+            inverted={state.inverted}
           />
         )}
         <View style={[styles.container, editorStyles.mainContainer]}>
