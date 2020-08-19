@@ -13,12 +13,16 @@ export class MentionList extends React.PureComponent {
     isTrackingStarted: PropTypes.bool,
     suggestions: PropTypes.array,
     keyword: PropTypes.string,
-    onSuggestionTap: PropTypes.func
+    onSuggestionTap: PropTypes.func,
+    inverted: PropTypes.bool
   };
 
   constructor() {
     super();
     this.previousChar = " ";
+    this.state = {
+      inverted: false
+    }
   }
 
   renderSuggestionsRow = ({ item }) => {
@@ -54,6 +58,8 @@ export class MentionList extends React.PureComponent {
           style={styles.mentionsListContainer}
           keyboardShouldPersistTaps={"always"}
           horizontal={false}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
           ListEmptyComponent={
             <View style={styles.loaderContainer}>
               <ActivityIndicator />
@@ -65,6 +71,7 @@ export class MentionList extends React.PureComponent {
           renderItem={rowData => {
             return this.renderSuggestionsRow(rowData);
           }}
+          inverted={state.inverted}
         />
       </Animated.View>
     );
