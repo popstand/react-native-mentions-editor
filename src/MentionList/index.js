@@ -55,7 +55,6 @@ export class MentionList extends React.PureComponent {
           style={styles.mentionsListContainer}
           keyboardShouldPersistTaps={"always"}
           horizontal={false}
-          showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           ListEmptyComponent={
             <View style={styles.loaderContainer}>
