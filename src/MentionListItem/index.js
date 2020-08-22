@@ -33,11 +33,13 @@ export class MentionListItem extends React.PureComponent {
           />
 
           <View style={[styles.text, editorStyles.mentionListItemTextWrapper]}>
-            <Text style={[styles.title, editorStyles.mentionListItemTitle]}>
+            <Text style={[styles.title, editorStyles.mentionListItemTitle]} numberOfLines={1} ellipsizeMode='tail'>
               {user.displayName}
             </Text>
             <Text
               style={[styles.username, editorStyles.mentionListItemUsername]}
+              numberOfLines={1}
+              ellipsizeMode='tail'
             >
               @{user.username}
             </Text>
