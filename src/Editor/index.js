@@ -62,7 +62,7 @@ export class Editor extends React.Component {
       },
       menIndex: 0,
       showMentions: false,
-      editorHeight: 22,
+      editorHeight: 32,
       scrollContentInset: { top: 0, bottom: 0, left: 0, right: 0 },
       placeholder: props.placeholder || "Type something...",
       maxLength: props.maxLength || 283,
@@ -285,6 +285,7 @@ export class Editor extends React.Component {
     });
     this.stopTracking();
     this.sendMessageToFooter(text);
+    this.inputRef.focus()
   };
 
   handleSelectionChange = ({ nativeEvent: { selection } }) => {
@@ -496,7 +497,7 @@ export class Editor extends React.Component {
         Platform.OS === "ios"
           ? evt.nativeEvent.contentSize.height
           : evt.nativeEvent.contentSize.height - androidTextHeight;
-      let editorHeight = 22;
+      let editorHeight = 32;
       editorHeight = editorHeight + height;
       this.setState({
         editorHeight
@@ -571,7 +572,7 @@ export class Editor extends React.Component {
                 )}
               </View>
               <TextInput
-                ref={input => props.onRef && props.onRef(input)}
+                ref={input => this.inputRef && input}
                 style={[styles.input, editorStyles.input]}
                 multiline
                 autoFocus={state.autoFocus}
