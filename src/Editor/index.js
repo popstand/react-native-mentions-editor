@@ -42,7 +42,7 @@ export class Editor extends React.Component {
       this.mentionsMap = map;
       msg = newValue;
       formattedMsg = this.formatText(newValue);
-      setTimeout(()=>{
+      setTimeout(() => {
         this.sendMessageToFooter(newValue);
       });
     }
@@ -584,7 +584,7 @@ export class Editor extends React.Component {
                 // selection={this.state.selection}
                 selectionColor={"#000"}
                 onSelectionChange={this.handleSelectionChange}
-                placeholder={state.placeholder}
+                // placeholder={state.placeholder}
                 onContentSizeChange={this.onContentSizeChange}
                 scrollEnabled={false}
                 maxLength={state.maxLength}
